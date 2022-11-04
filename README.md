@@ -1,1 +1,1 @@
-# webpack-react
+# webpack-react-config
