@@ -5,9 +5,21 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server -c config/webpack.dev.js",
-    "prod": "npx serve -s dist",
     "build": "cross-env NODE_ENV=production webpack -c config/webpack.prod.js",
-    "analy": "webpack -c config/webpack.analy.js"
+    "prod": "npx serve -s dist",
+    "analy": "webpack -c config/webpack.analy.js",
+    "eslint": "eslint --max-warnings=0",
+    "pre-check": "tsc && npx lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "npm run eslint"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pre-check"
+    }
   },
   "repository": {
     "type": "git",
@@ -29,6 +41,8 @@
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.8",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^9.1.0",
     "copy-webpack-plugin": "^11.0.0",
@@ -36,9 +50,13 @@
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^4.2.2",
+    "eslint": "^8.26.0",
+    "eslint-plugin-react": "^7.31.10",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^8.0.1",
     "less": "^4.1.3",
     "less-loader": "^11.1.0",
+    "lint-staged": "^13.0.3",
     "mini-css-extract-plugin": "^2.6.1",
     "postcss-loader": "^7.0.1",
     "react-refresh": "^0.14.0",
