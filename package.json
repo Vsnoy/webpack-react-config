@@ -9,17 +9,13 @@
     "prod": "npx serve -s dist",
     "analy": "webpack -c config/webpack.analy.js",
     "eslint": "eslint --max-warnings=0",
-    "pre-check": "tsc && npx lint-staged"
+    "pre-check": "tsc && npx lint-staged",
+    "prepare": "husky install"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
       "npm run eslint"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run pre-check"
-    }
   },
   "repository": {
     "type": "git",
