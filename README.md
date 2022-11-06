@@ -12,3 +12,4 @@
 - lint-staged
 - editorconfig
 - browserslistrc
+- npmrc
